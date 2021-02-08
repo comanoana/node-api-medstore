@@ -1,0 +1,33 @@
+[
+  {
+    "id": "3a33",
+    "drugName": "Ibuprofen",
+    "category": "AINS",
+    "expirationDay": "2018-02-09",
+    "link": "https://www.anm.ro/_/_PRO/PRO_8318_09.11.15.pdf",
+    "amount": "5",
+    "isExpired": false
+  },
+  {
+    "id": "edey6s1612796734558",
+    "drugName": "Amoxicilina",
+    "category": "Antibiotic",
+    "expirationDay": "2021-02-11",
+    "amount": "58"
+  },
+  {
+    "id": "gy38y1612800843480",
+    "drugName": "Aspirin",
+    "category": "AINS",
+    "expirationDay": "2021-10-28",
+    "link": "https://www.anm.ro/_/_PRO/PRO_11322_11.01.19.pdf",
+    "amount": "40"
+  },
+  {
+    "id": "zi7c3l1612801359118",
+    "drugName": "Salbutamol",
+    "category": "Bronhodilatator",
+    "expirationDay": "2021-05-28",
+    "amount": "4"
+  }
+]

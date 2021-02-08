@@ -21,7 +21,7 @@ router.get("/install", function (req, res, next) {
   pool.getConnection(function (err, connection) {
     if (err) throw err;
     const sql = `
-    CREATE TABLE IF NOT EXISTS members (id INT NOT NULL AUTO_INCREMENT, firstName TEXT NOT NULL, lastName TEXT NOT NULL, gitHub TEXT NOT NULL, PRIMARY KEY (id)) ENGINE = InnoDB;
+    CREATE TABLE IF NOT EXISTS drugs (id INT NOT NULL AUTO_INCREMENT, drugName TEXT NOT NULL, drugCategory TEXT NOT NULL, dateInputTEXT NOT NULL, drugInfo TEXT NOT NULL, amount TEXT NOT NULL, PRIMARY KEY (id)) ENGINE = InnoDB;
     `;
     connection.query(sql, function (err, results) {
       if (err) throw err;
@@ -37,7 +37,7 @@ router.get("/install", function (req, res, next) {
 router.get("/", function (req, res, next) {
   pool.getConnection(function (err, connection) {
     if (err) throw err;
-    const sql = `SELECT id, firstName, lastName, gitHub FROM members`;
+    const sql = `SELECT id, drugName, drugCategory, dateInput, drugInfo, amount FROM drugs`;
     connection.query(sql, function (err, results) {
       if (err) throw err;
       connection.release();
@@ -50,14 +50,16 @@ router.get("/", function (req, res, next) {
  *
  */
 router.post("/create", function (req, res, next) {
-  const firstName = req.body.firstName;
-  const lastName = req.body.lastName;
-  const gitHub = req.body.gitHub;
+  const drugName = req.body.drugName;
+  const drugCategory = req.body.drugCategory;
+  const dateInput= req.body.drugExpirationDay;
+  const drugInfo= req.body.drugLink;
+  const amount= req.body.drugAmount;
 
   pool.getConnection(function (err, connection) {
     if (err) throw err;
-    const sql = `INSERT INTO members (id, firstName, lastName, gitHub) VALUES (NULL, ?, ?, ?);`;
-    connection.query(sql, [firstName, lastName, gitHub], function (err, results) {
+    const sql = `INSERT INTO drugs(id, drugName, drugCategory, dateInput, drugInfo, amount) VALUES (NULL, ?, ?, ?);`;
+    connection.query(sql, [ drugName, drugCategory, dateInput, drugInfo, amount], function (err, results) {
       if (err) throw err;
       const id = results.insertId;
       connection.release();
@@ -77,7 +79,7 @@ router.delete("/delete", function (req, res, next) {
 
   pool.getConnection(function (err, connection) {
     if (err) throw err;
-    const sql = `DELETE FROM members WHERE id=?`;
+    const sql = `DELETE FROM drugs WHERE id=?`;
     connection.query(sql, [id], function (err, results) {
       if (err) throw err;
       connection.release();
@@ -90,15 +92,17 @@ router.delete("/delete", function (req, res, next) {
  *
  */
 router.put("/update", function (req, res, next) {
-  const id = req.body.id;
-  const firstName = req.body.firstName;
-  const lastName = req.body.lastName;
-  const gitHub = req.body.gitHub;
-
+  const id= req.body.id;
+  const drugName = req.body.drugName;
+  const drugCategory = req.body.drugCategory;
+  const dateInput= req.body.drugExpirationDay;
+  const drugInfo= req.body.drugLink;
+  const amount= req.body.drugAmount;
+  
   pool.getConnection(function (err, connection) {
     if (err) throw err;
     const sql = `UPDATE members SET firstName=?, lastName=?, gitHub=? WHERE id=?`;
-    connection.query(sql, [firstName, lastName, gitHub, id], function (err, results) {
+    connection.query(sql, [id, drugName, drugCategory, dateInput, drugInfo, amount], function (err, results) {
       if (err) throw err;
       connection.release();
       res.json({ success: true });

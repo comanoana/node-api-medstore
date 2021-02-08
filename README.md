@@ -24,16 +24,16 @@ npm run devstart
 Team members are stored inside [data/team.json](data/team.json)
 
 ```js
-// GET teams-json
-fetch("http://localhost:3000/teams-json", {
+// GET medstore-json
+fetch("http://localhost:3000/medstore-json", {
   method: "GET",
   headers: {
     "Content-Type": "application/json"
   }
 });
 
-// POST teams-json/create
-fetch("http://localhost:3000/teams-json/create", {
+// POST medstore-json/create
+fetch("http://localhost:3000/medstore-json/create", {
   method: "POST",
   headers: {
     "Content-Type": "application/json"
@@ -41,8 +41,8 @@ fetch("http://localhost:3000/teams-json/create", {
   body: JSON.stringify({ firstName: "Your", lastName: "Name", gitHub: "youaredev" })
 });
 
-// DELETE teams-json/delete
-fetch("http://localhost:3000/teams-json/delete", {
+// DELETE medstore-json/delete
+fetch("http://localhost:3000/medstore-json/delete", {
   method: "DELETE",
   headers: {
     "Content-Type": "application/json"
@@ -50,8 +50,8 @@ fetch("http://localhost:3000/teams-json/delete", {
   body: JSON.stringify({ id: "fedcba1610309909431" })
 });
 
-// PUT teams-json/update
-fetch("http://localhost:3000/teams-json/update", {
+// PUT medstore-json/update
+fetch("http://localhost:3000/medstore-json/update", {
   method: "PUT",
   headers: {
     "Content-Type": "application/json"
