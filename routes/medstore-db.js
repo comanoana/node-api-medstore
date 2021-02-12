@@ -21,7 +21,7 @@ router.get("/install", function (req, res, next) {
   pool.getConnection(function (err, connection) {
     if (err) throw err;
     const sql = `
-    CREATE TABLE IF NOT EXISTS drugs (id INT NOT NULL AUTO_INCREMENT, drugName TEXT NOT NULL, category TEXT NOT NULL, expirationDay TEXT NOT NULL, link TEXT NOT NULL , amount TEXT NOT NULL, PRIMARY KEY (id)) ENGINE = InnoDB;
+    CREATE TABLE IF NOT EXISTS drugs (id INT NOT NULL AUTO_INCREMENT, drugName TEXT NOT NULL, category TEXT NOT NULL, expirationDay TEXT NOT NULL, link TEXT NOT NULL, amount TEXT NOT NULL, isExpired BOOLEAN, PRIMARY KEY (id)) ENGINE = InnoDB;
     `;
     connection.query(sql, function (err, results) {
       if (err) throw err;
@@ -55,12 +55,12 @@ router.post("/create", function (req, res, next) {
   const expirationDay= req.body.expirationDay;
   const link= req.body.link;
   const amount= req.body.amount;
-
+  const isExpired = req.body.isExpired;
 
   pool.getConnection(function (err, connection) {
     if (err) throw err;
-    const sql = `INSERT INTO drugs (id, drugName, category, expirationDay, link, amount) VALUES (NULL, ?, ?, ?, ?, ?);`;
-    connection.query(sql, [ drugName, category, expirationDay, link, amount], function (err, results) {
+    const sql = `INSERT INTO drugs (id, drugName, category, expirationDay, link, amount, isExpired) VALUES (NULL, ?, ?, ?, ?, ?, ?);`;
+    connection.query(sql, [ drugName, category, expirationDay, link, amount, isExpired], function (err, results) {
       if (err) throw err;
       const id = results.insertId;
       connection.release();
