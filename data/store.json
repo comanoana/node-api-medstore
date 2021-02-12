@@ -26,8 +26,16 @@
   {
     "id": "zi7c3l1612801359118",
     "drugName": "Salbutamol",
-    "category": "Bronhodilatator",
-    "expirationDay": "2021-05-28",
-    "amount": "4"
+    "category": "Bronhodilatador",
+    "expirationDay": "2021-05-27",
+    "amount": "14"
+  },
+  {
+    "id": "pp8nnk1612979111366",
+    "drugName": "Paracetamol",
+    "category": "AINS",
+    "expirationDay": "2021-02-10",
+    "link": "https://www.catena.ro/prospecte/prospect-paracetamol-terapia-500-mg-x-20-compr",
+    "amount": "12"
   }
 ]
