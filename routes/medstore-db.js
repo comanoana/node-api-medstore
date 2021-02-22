@@ -93,16 +93,19 @@ router.delete("/delete", function (req, res, next) {
  *
  */
 router.put("/update", function (req, res, next) {
+  const id = req.body.id;
   const drugName = req.body.drugName;
   const category = req.body.category;
   const expirationDay= req.body.expirationDay;
   const link= req.body.link;
   const amount= req.body.amount;
+
+  console.log("DRUG ", req.body);
   
   pool.getConnection(function (err, connection) {
     if (err) throw err;
-    const sql = `UPDATE drugsSET firstName=?, lastName=?, expirationDay=?, link=?, amount=? WHERE id=?`;
-    connection.query(sql, [id, drugName, category, expirationDay, link, amount], function (err, results) {
+    const sql = `UPDATE drugs SET drugName=?, category=?, expirationDay=?, link=?, amount=? WHERE id=?`;
+    connection.query(sql, [drugName, category, expirationDay, link, amount, id], function (err, results) {
       if (err) throw err;
       connection.release();
       res.json({ success: true });
