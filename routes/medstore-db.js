@@ -50,7 +50,7 @@ console.log("DATE -> ", datetime);
 
   pool.getConnection(function (err, connection) {
     if (err) throw err;
-    const sql = `SELECT * FROM drugs WHERE expirationDay < '${datetime}'`;
+    const sql = `SELECT * FROM drugs WHERE expirationDay <= '${datetime}'`;
     connection.query(sql, function (err, results) {
       if (err) throw err;
       connection.release();
