@@ -8,7 +8,7 @@ Node JS CRUD API example
 ## Install
 
 ```sh
-git clone (https://github.com/comanoana/node-api.git)
+git clone (https://github.com/comanoana/node-api-medstore.git)
 cd node-api
 npm install
 ```
