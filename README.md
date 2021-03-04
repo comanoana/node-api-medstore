@@ -8,7 +8,7 @@ Node JS CRUD API example
 ## Install
 
 ```sh
-git clone https://github.com/comanoana/node-api.git
+git clone (https://github.com/comanoana/node-api.git)
 cd node-api
 npm install
 ```
@@ -21,7 +21,7 @@ npm run devstart
 
 ### JSON file as storage
 
-Team members are stored inside [data/team.json](data/team.json)
+Team members are stored inside [data/store.json](data/store.json)
 
 ```js
 // GET medstore-json
@@ -38,7 +38,7 @@ fetch("http://localhost:3000/medstore-json/create", {
   headers: {
     "Content-Type": "application/json"
   },
-  body: JSON.stringify({ firstName: "Your", lastName: "Name", gitHub: "youaredev" })
+  body: JSON.stringify({ drugNAme: "drugName", category: "category", expirationDay: "expDate", link:"prospect", amount: "amount" })
 });
 
 // DELETE medstore-json/delete
@@ -57,10 +57,11 @@ fetch("http://localhost:3000/medstore-json/update", {
     "Content-Type": "application/json"
   },
   body: JSON.stringify({
-    id: "fedcba1610310163146",
-    firstName: "UpdatedName",
-    lastName: "Name",
-    gitHub: "youaredev"
+  drugNAme: "drugName",
+   category: "category",
+    expirationDay: "expDate", 
+    link:"prospect", 
+    amount: "amount"
   })
 });
 ```
@@ -69,7 +70,7 @@ fetch("http://localhost:3000/medstore-json/update", {
 
 Team members are stored mysql
 
-- configure user & pass for mysql connection [routes/teams-db.js](routes/teams-db.js)
-- create a database named **teams**
-- run [http://localhost:3000/teams/install](http://localhost:3000/teams/install)
-- now you can any other CRUD operations (the same as for json but change url "teams-json" -> "teams")
+- configure user & pass for mysql connection [routes/medstore-db.js](routes/medstore-db.js)
+- create a database named **medstore**
+- run [http://localhost:3000/medstore/install](http://localhost:3000/medstore/install)
+- now you can any other CRUD operations (the same as for json but change url "medstore-json" -> "medstore")
