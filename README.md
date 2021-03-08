@@ -58,7 +58,7 @@ fetch("http://localhost:3000/medstore-json/update", {
   },
   body: JSON.stringify({
   drugNAme: "drugName",
-   category: "category",
+   category: "category", 
     expirationDay: "expDate", 
     link:"prospect", 
     amount: "amount"

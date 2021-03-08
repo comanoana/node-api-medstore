@@ -1,41 +1,7 @@
-[
-  {
-    "id": "3a33",
-    "drugName": "Ibuprofen",
-    "category": "AINS",
-    "expirationDay": "2018-02-09",
-    "link": "https://www.anm.ro/_/_PRO/PRO_8318_09.11.15.pdf",
-    "amount": "5",
-    "isExpired": false
-  },
-  {
-    "id": "edey6s1612796734558",
-    "drugName": "Amoxicilina",
-    "category": "Antibiotic",
-    "expirationDay": "2021-02-11",
-    "amount": "58"
-  },
-  {
-    "id": "gy38y1612800843480",
-    "drugName": "Aspirin",
-    "category": "AINS",
-    "expirationDay": "2021-10-28",
-    "link": "https://www.anm.ro/_/_PRO/PRO_11322_11.01.19.pdf",
-    "amount": "40"
-  },
-  {
-    "id": "zi7c3l1612801359118",
-    "drugName": "Salbutamol",
-    "category": "Bronhodilatador",
-    "expirationDay": "2021-05-27",
-    "amount": "14"
-  },
-  {
-    "id": "pp8nnk1612979111366",
-    "drugName": "Paracetamol",
-    "category": "AINS",
-    "expirationDay": "2021-02-10",
-    "link": "https://www.catena.ro/prospecte/prospect-paracetamol-terapia-500-mg-x-20-compr",
-    "amount": "12"
-  }
-]
+[{"id":5,"drugName":"Paracetamol","category":"Antiinflamator","expirationDay":"2021-03-01","link":"https://www.anm.ro/_/_PRO/pro_13157_16.04.20.pdf","amount":"12"},
+  {"id":6,"drugName":"Ibuprofen","category":"Antiinflamator","expirationDay":"2021-04-24","link":"https://www.anm.ro/_/_PRO/PRO_8318_09.11.15.pdf","amount":"20"},
+  {"id":9,"drugName":"Aspirin","category":"Analgezic","expirationDay":"2021-08-19","link":"anm.ro/_/_PRO/PRO_11322_11.01.19.pdf","amount":"15"},
+  {"id":10,"drugName":"Coldrex Lemon","category":"Antipiretic, analgezic","expirationDay":"2022-06-15","link":"https://www.anm.ro/_/_PRO/PRO_7547_16.04.15.pdf","amount":"10"},   
+  {"id":14,"drugName":"Furazolidon","category":"Antidiareic","expirationDay":"2021-03-07","link":"https://www.anm.ro/_/_PRO/pro_495_31.12.07.pdf","amount":"8"},
+  {"id":19,"drugName":"Laxacutin","category":"Laxativ","expirationDay":"2021-03-27","link":"https://comenzi.farmaciatei.ro/farmacie/afectiuni-digestive/constipatie/laxacutin-14-comprimate-zdrovit-p334541","amount":"9"}
+  ] 
