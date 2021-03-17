@@ -34,10 +34,10 @@ router.get("/install", function (req, res, next) {
 router.get("/", function (req, res, next) {
   pool.getConnection(function (err, connection) {
     if (err) throw err;
-    const sql = `SELECT * FROM drugs`;
+    const sql = "SELECT * FROM drugs ORDER BY cast(amount as Int) DESC";
     connection.query(sql, function (err, results) {
       if (err) throw err;
-      connection.release();
+      connection.release();      
       res.json(results);
     });
   });
@@ -46,11 +46,9 @@ router.get("/", function (req, res, next) {
 router.get("/expired", function (req, res, next) {
 const datetime = new Date().toISOString().split('T')[0];
 
-console.log("DATE -> ", datetime);
-
   pool.getConnection(function (err, connection) {
     if (err) throw err;
-    const sql = `SELECT * FROM drugs WHERE expirationDay <= '${datetime}'`;
+    const sql = `SELECT * FROM drugs WHERE expirationDay <= '${datetime}' ORDER BY cast(amount as Int) DESC`;
     connection.query(sql, function (err, results) {
       if (err) throw err;
       connection.release();
@@ -66,7 +64,7 @@ router.get("/unexpired", function (req, res, next) {
   
     pool.getConnection(function (err, connection) {
       if (err) throw err;
-      const sql = `SELECT * FROM drugs WHERE expirationDay > '${datetime}'`;
+      const sql = `SELECT * FROM drugs WHERE expirationDay > '${datetime}' ORDER BY cast(amount as Int) DESC`;
       connection.query(sql, function (err, results) {
         if (err) throw err;
         connection.release();
